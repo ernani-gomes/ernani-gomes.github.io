@@ -1,0 +1,154 @@
+{{- define "RenderImageSimple" -}}
+  {{- $imgObj := .imgObj -}}
+  {{- $src := .src -}}
+  {{- $alt := .alt -}}
+
+  {{- $isFirst := false -}}
+  {{- if not (.Page.Scratch.Get "firstImageRendered") -}}
+    {{- .Page.Scratch.Set "firstImageRendered" true -}}
+    {{- $isFirst = true -}}
+  {{- end -}}
+
+  <img
+    class="my-0 rounded-md"
+    {{ if $isFirst }}
+      fetchpriority="high"
+      decoding="async"
+    {{ else }}
+      loading="lazy"
+      decoding="async"
+      fetchpriority="low"
+    {{ end }}
+    alt="{{ $alt }}"
+    src="{{ $src }}"
+    {{ with $imgObj }}
+      {{ with .Width }}width="{{ . }}"{{ end }}
+      {{ with .Height }}height="{{ . }}"{{ end }}
+    {{ end }}>
+{{- end -}}
+
+
+
+{{- define "RenderImageResponsive" -}}
+  {{- $imgObj := .imgObj -}}
+  {{- $alt := .alt -}}
+  {{- $originalWidth := $imgObj.Width -}}
+
+  {{- $isFirst := false -}}
+  {{- if not (.Page.Scratch.Get "firstImageRendered") -}}
+    {{- .Page.Scratch.Set "firstImageRendered" true -}}
+    {{- $isFirst = true -}}
+  {{- end -}}
+
+  {{- /* Gera versão 400px apenas se a imagem for maior que 400 */ -}}
+  {{- if gt $originalWidth 400 -}}
+    {{- $img400 := $imgObj.Resize "400x" -}}
+    {{- $img630 := $imgObj -}}
+
+    <img
+      class="my-0 rounded-md"
+      {{ if $isFirst }}
+        fetchpriority="high"
+        decoding="async"
+      {{ else }}
+        loading="lazy"
+        decoding="async"
+        fetchpriority="auto"
+      {{ end }}
+      alt="{{ $alt }}"
+      width="{{ $imgObj.Width }}"
+      height="{{ $imgObj.Height }}"
+      src="{{ $img630.RelPermalink }}"
+      srcset="{{ $img400.RelPermalink }} 400w, {{ $img630.RelPermalink }} 630w"
+      sizes="(max-width: 768px) 90vw, 630px"
+      data-zoom-src="{{ $imgObj.RelPermalink }}">
+  {{- else -}}
+
+    {{- /* Caso raro: imagem menor que 400 */ -}}
+    <img
+      class="my-0 rounded-md"
+      {{ if $isFirst }}
+        fetchpriority="high"
+        decoding="async"
+      {{ else }}
+        loading="lazy"
+        decoding="async"
+        fetchpriority="auto"
+      {{ end }}
+      alt="{{ $alt }}"
+      width="{{ $imgObj.Width }}"
+      height="{{ $imgObj.Height }}"
+      src="{{ $imgObj.RelPermalink }}"
+      data-zoom-src="{{ $imgObj.RelPermalink }}">
+  {{- end -}}
+
+{{- end -}}
+
+
+
+{{- define "RenderImageCaption" -}}
+  {{- with .caption -}}
+    <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end -}}
+{{- end -}}
+
+
+
+{{- $disableImageOptimizationMD := .Page.Site.Params.disableImageOptimizationMD | default false -}}
+{{- $urlStr := .Destination | safeURL -}}
+{{- $url := urls.Parse $urlStr -}}
+{{- $altText := .Text -}}
+{{- $caption := .Title -}}
+{{- $isRemote := findRE "^(https?|data)" $url.Scheme -}}
+{{- $resource := "" -}}
+
+{{- if not $isRemote -}}
+  {{- $resource = or ($.Page.Resources.GetMatch $urlStr) (resources.Get $urlStr) -}}
+{{- end -}}
+
+
+
+<figure
+  {{- range $k, $v := .Attributes -}}
+    {{- if $v -}}
+      {{- printf " %s=%q" $k ($v | transform.HTMLEscape) | safeHTMLAttr -}}
+    {{- end -}}
+  {{- end -}}>
+
+  {{- if $isRemote -}}
+    {{- template "RenderImageSimple" (dict
+        "imgObj" ""
+        "src" $urlStr
+        "alt" $altText
+      ) -}}
+
+  {{- else if $resource -}}
+    {{- $isSVG := eq $resource.MediaType.SubType "svg" -}}
+    {{- $shouldOptimize := and (not $disableImageOptimizationMD) (not $isSVG) -}}
+
+    {{- if $shouldOptimize -}}
+      {{- template "RenderImageResponsive" (dict
+          "imgObj" $resource
+          "alt" $altText
+        ) -}}
+    {{- else -}}
+
+      {{- template "RenderImageSimple" (dict
+          "imgObj" $resource
+          "src" $resource.RelPermalink
+          "alt" $altText
+        ) -}}
+
+    {{- end -}}
+
+  {{- else -}}
+    {{- template "RenderImageSimple" (dict
+        "imgObj" ""
+        "src" $urlStr
+        "alt" $altText
+      ) -}}
+  {{- end -}}
+
+  {{- template "RenderImageCaption" (dict "caption" $caption) -}}
+
+</figure>

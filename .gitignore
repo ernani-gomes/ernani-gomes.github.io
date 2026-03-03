@@ -1,0 +1,102 @@
+# ============================================================================
+# Hugo / Blowfish
+# ============================================================================
+
+# Generated site output
+public/
+resources/
+exampleSite/resources/
+
+# Hugo build files
+.hugo_build.lock
+hugo_stats.json
+
+# Auto-generated JS config
+**/assets/jsconfig.json
+
+# Pagefind search index
+pagefind/
+static/pagefind/
+
+# ============================================================================
+# Go
+# ============================================================================
+
+# Test binary
+*.test
+
+# Coverage output
+*.out
+
+# Vendor
+_vendor/
+vendor/
+
+# ============================================================================
+# Node.js & Package Managers
+# ============================================================================
+
+# Dependencies
+node_modules/
+scripts/node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# ============================================================================
+# Environment & Configuration
+# ============================================================================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# ============================================================================
+# Binaries
+# ============================================================================
+
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# ============================================================================
+# Firebase Scripts
+# ============================================================================
+
+scripts/serviceAccountKey.json
+scripts/*.csv
+
+# Google Analytics export (temporary)
+ga-pageviews.csv
+*.csv
+
+# ============================================================================
+# IDE / Editors
+# ============================================================================
+
+.idea
+.vscode
+
+# ============================================================================
+# Operating System Files
+# ============================================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.Ulysses-Group.plist
+.Ulysses-Settings.plist
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+*~
