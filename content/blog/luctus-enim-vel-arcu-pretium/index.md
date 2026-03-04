@@ -8,8 +8,8 @@ categorias: ["Textos"]
 summary: "Praesent luctus lobortis urna at bibendum. Cras sodales, odio sed varius rhoncus, tellus neque rutrum purus, ac pellentesque mauris tortor scelerisque augue."
 description: "Praesent luctus lobortis urna at bibendum. Cras sodales, odio sed varius rhoncus, tellus neque rutrum purus, ac pellentesque mauris tortor scelerisque augue."
 
-featureimage: "featured.jpg"
-featured_image_slug: "luctus-enim-vel-arcu-pretium.jpg"  # Nova versão com o slug
+featureimage: "featured.webp"
+featured_image_slug: "luctus-enim-vel-arcu-pretium.webp"  # Nova versão com o slug
 featureimagecaption: "Créditos: Lorenzo Herrera | unsplash.com"
 featureimagealt: "Imagem para o post XXXXXXXXXXXXXX"
 
@@ -24,7 +24,7 @@ schema:
   mainEntityOfPage: true
 ---
 
-![Imagem para o post XXXXXXXXXXXXx](luctus-enim-vel-arcu-pretium.jpg "Créditos: Lorenzo Herrera | unsplash.com")
+![Imagem para o post XXXXXXXXXXXXx](luctus-enim-vel-arcu-pretium.webp "Créditos: Lorenzo Herrera | unsplash.com")
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer massa neque, viverra mattis lacus eget, facilisis venenatis quam. Phasellus tincidunt feugiat diam nec porttitor. Nunc magna nisi, semper ut ex tempor, bibendum condimentum tortor. Fusce non libero quis tellus egestas lacinia. Donec bibendum neque sagittis orci efficitur, pellentesque fermentum justo scelerisque. Maecenas volutpat magna metus, quis egestas massa finibus in. Praesent luctus lobortis urna at bibendum. Cras sodales, odio sed varius rhoncus, tellus neque rutrum purus, ac pellentesque mauris tortor scelerisque augue. Cras massa mi, tincidunt vitae sem ac, euismod ornare tellus. Aenean imperdiet, enim vitae consectetur pulvinar, massa diam tempus dui, ut commodo nulla sem sed ex. Integer at massa et eros vulputate sodales ac sit amet orci. Phasellus suscipit in ipsum eget convallis. Proin consectetur non odio eu aliquet.
 

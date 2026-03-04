@@ -8,8 +8,8 @@ categorias: ["Textos"]
 summary: "Donec quis odio convallis, vestibulum nibh quis, molestie dui. Praesent ac neque non urna consequat mattis vel a tortor."
 description: "Donec quis odio convallis, vestibulum nibh quis, molestie dui. Praesent ac neque non urna consequat mattis vel a tortor."
 
-featureimage: "featured.jpg"
-featured_image_slug: "ac-neque-non-urna-luctus.jpg"  # Nova versão com o slug
+featureimage: "featured.webp"
+featured_image_slug: "ac-neque-non-urna-luctus.webp"  # Nova versão com o slug
 featureimagecaption: "Créditos: NOAA | unsplash.com"
 featureimagealt: "Imagem para o post XXXXXXXXXXXX"
 
@@ -24,7 +24,7 @@ schema:
   mainEntityOfPage: true
 ---
 
-![Imagem para o post XXXXXXXXXXXXX](praesent-ac-neque-non-urna.jpg "Créditos: NOAA | unsplash.com")
+![Imagem para o post XXXXXXXXXXXXX](praesent-ac-neque-non-urna.webp "Créditos: NOAA | unsplash.com")
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer massa neque, viverra mattis lacus eget, facilisis venenatis quam. Phasellus tincidunt feugiat diam nec porttitor. Nunc magna nisi, semper ut ex tempor, bibendum condimentum tortor. Fusce non libero quis tellus egestas lacinia. Donec bibendum neque sagittis orci efficitur, pellentesque fermentum justo scelerisque. Maecenas volutpat magna metus, quis egestas massa finibus in. Praesent luctus lobortis urna at bibendum. Cras sodales, odio sed varius rhoncus, tellus neque rutrum purus, ac pellentesque mauris tortor scelerisque augue. Cras massa mi, tincidunt vitae sem ac, euismod ornare tellus. Aenean imperdiet, enim vitae consectetur pulvinar, massa diam tempus dui, ut commodo nulla sem sed ex. Integer at massa et eros vulputate sodales ac sit amet orci. Phasellus suscipit in ipsum eget convallis. Proin consectetur non odio eu aliquet.
 
